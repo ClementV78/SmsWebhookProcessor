@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sms-reply-webhook-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sms-reply-webhook
+  template:
+    metadata:
+      labels:
+        app: sms-reply-webhook
+    spec:
+      containers:
+      - name: sms-reply-webhook
+        image: clementv78/sms-reply-webhook:latest
+        ports:
+        - containerPort: 8181
+        env:
+        - name: SIGNING_KEY
+          valueFrom:
+            secretKeyRef:
+              name: sms-reply-webhook-secret
+              key: SIGNING_KEY

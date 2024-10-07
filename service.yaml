@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sms-reply-webhook-service
+spec:
+  selector:
+    app: sms-reply-webhook
+  ports:
+  - protocol: TCP
+    port: 8181
+    targetPort: 8181

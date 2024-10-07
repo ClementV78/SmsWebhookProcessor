@@ -1,0 +1,6 @@
+sms_reply_webhook.code-workspace
+venv/
+__pycache__/
+
+# Ignore environment variables file
+.env
